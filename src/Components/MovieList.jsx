@@ -10,15 +10,16 @@ const MovieList = () => {
 
     useEffect(() => {
         getAllMovies()
-    }, [movieList])
+    }, [])
 
     const getAllMovies = async () => {
         const allMovies = await fetchAllMovies(searchValue)
         setMovieList(allMovies)
     }
 
-    const handleSubmit = (e) => {
-        fetchAllMovies(searchValue)
+    const handleSubmit = async (e) => {
+        const allMovies = await fetchAllMovies(searchValue)
+        setMovieList(allMovies)
     }
 
 
